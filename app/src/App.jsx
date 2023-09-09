@@ -8,7 +8,7 @@ function App() {
     <>
       {/* Header Home */}
       <div className="flex flex-column items-center" style={{ height: '260px', position: 'relative', marginBottom: 30 }}>
-        <img src={Travel} alt="" style={{ width: '100%' }} />
+        <img src={Travel} alt="" style={{ width: '100%', height: '250px' }} />
         <div id="balance-card">
           <p>Welcome, Juan!</p>
         </div>

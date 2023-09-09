@@ -143,19 +143,7 @@ body {
   justify-content: center;
 }
 
-#footer {
-  position: fixed;
-  bottom: 0;
-  height: 60px;
-  background-color: #48034F;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  gap: 50px;
-  left: 0;
-}
-
+/* Navbar */
 #navbar {
   position: fixed;
   top: 0;
@@ -170,6 +158,24 @@ body {
   display: flex;
 }
 
+.container-with-navbar {
+  margin-top: 70px;
+}
+
+/* Footer */
+#footer {
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  background-color: #48034F;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 50px;
+  left: 0;
+}
+
 .footer-menu {
   height: 50px;
   width: 50px;
@@ -177,17 +183,62 @@ body {
   align-items: center;
 }
 
+/* Remove link styling */
 .link.active {
   color: wheat;
 }
-
-
-/* Remove link styling */
-
 
 .link {
   text-decoration: none;
   color: #F8F8FF;
   display: flex;
   flex-direction: row;
+}
+
+
+/* Promos */
+
+.promo-card {
+  width: 90vw;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 90px;
+}
+
+.promo-image {
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+}
+
+.promo-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.promo-wrap-date {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-title {
+  font-weight: bold;
+}
+
+.promo-date {
+  font-size: small;
+  opacity: 0.5;
 }
