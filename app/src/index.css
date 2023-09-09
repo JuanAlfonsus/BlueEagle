@@ -43,6 +43,10 @@ body {
   background-color: #F5F5F5;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-white {
   color: #F8F8FF;
 }
@@ -88,13 +92,25 @@ body {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
+.box-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
+  border-radius: 10px;
+
+  background-color: wheat;
+}
+
 #container-login {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-left: 10px;
   padding-right: 10px;
-  height: 50vh;
+  height: 100vh;
 }
 
 #login-card {
@@ -108,4 +124,70 @@ body {
 #form-login {
   padding-bottom: 35px;
   padding-top: 20px;
+}
+
+#balance-card {
+  width: 300px;
+  background-color: #48034F;
+  color: wheat;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  bottom: 0;
+}
+
+#home-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  background-color: #48034F;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 50px;
+  left: 0;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  background-color: #48034F;
+  width: 100%;
+  left: 0;
+  padding-left: 10px;
+}
+
+#navbar-title {
+  display: flex;
+}
+
+.footer-menu {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.link.active {
+  color: wheat;
+}
+
+
+/* Remove link styling */
+
+
+.link {
+  text-decoration: none;
+  color: #F8F8FF;
+  display: flex;
+  flex-direction: row;
 }

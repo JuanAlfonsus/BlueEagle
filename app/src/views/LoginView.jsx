@@ -41,7 +41,7 @@ export default function LoginView() {
             <section id="container-login">
                 <div id="login-card">
                     <img src={Logo} alt="" style={{ height: 100, marginBottom: 20, marginTop: 20 }} />
-                    <div className="bg-primary w-full flex justify-center" id="login-header">
+                    <div className="bg-primary w-full flex justify-center">
                         <h4 className="text-white">Please input your email and password</h4>
                     </div>
                     <div>
