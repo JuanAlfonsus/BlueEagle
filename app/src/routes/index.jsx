@@ -4,6 +4,7 @@ import {
 import LoginView from "../views/LoginView";
 import App from "../App";
 import PromoView from "../views/PromoView";
+import RideView from "../views/RideView";
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
     {
         path: "/promo",
         element: <PromoView />
+    },
+    {
+        path: "/ride",
+        element: <RideView />
     },
     {
         path: "/login",

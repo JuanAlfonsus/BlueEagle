@@ -56,7 +56,7 @@ export default function LoginView() {
                                 <label>Password</label>
                                 <input onChange={(e) => handleForm(e)} name='password' type="password" placeholder="Input Password" className="form-input" />
                             </div>
-                            <button className="button button-purple">Login</button>
+                            <button className="button button-primary">Login</button>
                         </form>
 
                         <div className='flex flex-column justify-center items-center'>

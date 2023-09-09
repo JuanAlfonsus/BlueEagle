@@ -23,7 +23,7 @@ export default function PromoCard({ promo }) {
 
                         {/* button use */}
                         <div>
-                            <button className="button button-orange">Use</button>
+                            <button className="button button-primary">Use</button>
                         </div>
                     </div>
 

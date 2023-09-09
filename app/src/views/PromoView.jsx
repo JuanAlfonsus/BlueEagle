@@ -466,22 +466,7 @@ export default function PromoView() {
             <Navbar />
             <section className="container-with-navbar">
                 <div className="card-container">
-
-                    {/* <div className="promo-card">
-                        <div className="promo-card-head">
-
-                            <div className="promo-image">
-                                <img src={promos[0].img.formats.small.url} alt="promo" style={{ objectFit: 'contain', objectPosition: 'center', height: '100%', width: '100%', borderRadius: '7px' }} />
-                            </div>
-
-                            <div className="promo-body">
-                                <span className="promo-title">{ promos[0].nama }</span>
-                            </div>
-
-
-                        </div>
-                    </div> */}
-
+                    
                     {
                         promos.map((e, i) => {
                             return <PromoCard key={i} promo={e} />
