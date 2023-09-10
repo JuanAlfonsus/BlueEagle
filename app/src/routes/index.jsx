@@ -5,6 +5,7 @@ import LoginView from "../views/LoginView";
 import App from "../App";
 import PromoView from "../views/PromoView";
 import RideView from "../views/RideView";
+import FleetView from "../views/FleetView";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     {
         path: "/ride",
         element: <RideView />
+    },
+    {
+        path: "/fleet",
+        element: <FleetView />
     },
     {
         path: "/login",

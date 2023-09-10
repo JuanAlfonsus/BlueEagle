@@ -463,7 +463,7 @@ export default function PromoView() {
 
     return (
         <>
-            <Navbar />
+            <Navbar name={ 'Promos' } />
             <section className="container-with-navbar">
                 <div className="card-container">
                     
