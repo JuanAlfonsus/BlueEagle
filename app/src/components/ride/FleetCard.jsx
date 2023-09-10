@@ -1,8 +1,8 @@
-import Car from '../../assets/car.png'
+import { useEffect, useState } from 'react'
 import Taxi from '../../assets/taxi.png'
 
-export default function FleetCard({ fleet }) {
-    const { name, seats, price } = fleet
+export default function FleetCard({ fleet, selectedOption, handleOptionChange, distance }) {
+    const {  id, name, seats, price } = fleet
 
     const convertIdr = (number) => {
         let res = new Intl.NumberFormat("id-ID", {
@@ -12,9 +12,13 @@ export default function FleetCard({ fleet }) {
         return res.split(',')[0]
     }
 
+    const newPrice = convertIdr(distance * price)
+    const newTotal = distance * price
+
+
     return (
         <>
-            <div className="fleet-card">
+            <div className={ selectedOption === id ? 'fleet-card active' : 'fleet-card' } onClick={() => handleOptionChange({ id, newTotal })}>
                 <img src={Taxi} alt="" />
 
                 <div className='fleet-content'>
@@ -23,7 +27,7 @@ export default function FleetCard({ fleet }) {
                 </div>
 
                 <div className='fleet-price'>
-                    <span>{convertIdr(price)}</span>
+                    <span>{newPrice}</span>
                 </div>
             </div>
         </>

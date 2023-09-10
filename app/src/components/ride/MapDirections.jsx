@@ -19,7 +19,6 @@ export default function MapDirections() {
     const [currentLocation, setCurrentLocation] = useState(null);
     const [map, setMap] = useState( /** @type google.maps.Map */(null))
     const [directions, setDirections] = useState(null)
-    const [distance, setDistance] = useState('')
 
     /** @type React.MutableRefObject<HtmlInputElement> */
     const originRef = useRef()
@@ -27,7 +26,7 @@ export default function MapDirections() {
     /** @type React.MutableRefObject<HtmlInputElement> */
     const destinationRef = useRef()
 
-    const handleCalcRoute = async (e) => {
+    const handleCalcRoute = async () => {
         try {
             if (originRef.current.value === '' || destinationRef.current.value === '') return
 
@@ -39,7 +38,11 @@ export default function MapDirections() {
             })
 
             setDirections(res)
-            setDistance(res.routes[0].legs[0].distance.text)
+            dispatch(setUserDistance({
+                distance: res.routes[0].legs[0].distance.text,
+                origin: originRef.current.value,
+                destination: destinationRef.current.value
+            }))
         } catch (error) {
             console.log(error)
         }
@@ -53,11 +56,6 @@ export default function MapDirections() {
 
     const handleContinue = (e) => {
         e.preventDefault()
-        dispatch(setUserDistance({
-            distance,
-            origin: originRef.current.value,
-            destination: destinationRef.current.value
-        }))
 
         navigate('/fleet')
     }
@@ -100,7 +98,7 @@ export default function MapDirections() {
                 >
                     {directions && <DirectionsRenderer directions={directions} />}
                 </GoogleMap>
-                <div className="center-map-button" onClick={() => map.panTo(center)}>
+                <div className="center-map-button" onClick={() => map.panTo(currentLocation)}>
                     <i className="fa-solid fa-location-dot"></i>
                 </div>
             </div>
@@ -128,7 +126,7 @@ export default function MapDirections() {
 
                         <div style={{ display: 'flex', flexDirection: 'row', marginBottom: '20px', width: '100%', gap: '20px' }}>
                             <button className="button button-secondary" id="schedule-button">Schedule</button>
-                            <button type="submit" className="button button-primary" id="book-button" disabled={!directions} onClick={handleContinue}>Continue</button>
+                            <button type="submit" className="button button-primary continue-button" disabled={!directions} onClick={handleContinue}>Continue</button>
                         </div>
                     </div>
                 </div>

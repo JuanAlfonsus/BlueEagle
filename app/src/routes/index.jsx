@@ -6,6 +6,7 @@ import App from "../App";
 import PromoView from "../views/PromoView";
 import RideView from "../views/RideView";
 import FleetView from "../views/FleetView";
+import CheckoutView from "../views/CheckoutView";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     {
         path: "/fleet",
         element: <FleetView />
+    },
+    {
+        path: "/checkout",
+        element: <CheckoutView />
     },
     {
         path: "/login",

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import FleetCard from "../components/ride/FleetCard";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserTotal } from "../stores/actions/actionUser";
 
 
 export default function FleetView() {
@@ -10,9 +11,10 @@ export default function FleetView() {
     const distance = useSelector((state) => state.distance)
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
+    // get fleets from api
     const [fleets, setFleets] = useState([])
-
     const fetchFleet = async () => {
         try {
             let response = await fetch('http://localhost:3001/fleet', {
@@ -27,6 +29,21 @@ export default function FleetView() {
         }
     }
 
+
+    // select fleet by id
+    const [selectedOption, setSelectedOption] = useState(null)
+    const [total, setTotal] = useState(0)
+    const handleOptionChange = (value) => {
+        const { id, newTotal } = value
+        setSelectedOption(id)
+        dispatch(setUserTotal(newTotal))
+    }
+
+
+    const handleNavigate = () => {
+        navigate('/checkout')
+    }
+
     // navigation guard
     useEffect(() => {
         if (!distance) {
@@ -36,11 +53,7 @@ export default function FleetView() {
         }
     }, [])
 
-    const [selectedOption, setSelectedOption] = useState(null);
 
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
-    }
 
     return (
         <>
@@ -49,9 +62,14 @@ export default function FleetView() {
                 <div className="card-container" id="fleet-container">
                     {
                         fleets.map((e, i) => {
-                            return <FleetCard key={i} fleet={e} />
+                            return (
+                                <FleetCard handleOptionChange={handleOptionChange} selectedOption={selectedOption} distance={distance} key={i} fleet={e} />
+                            )
                         })
                     }
+                </div>
+                <div style={{ padding: '20px' }}>
+                    <button className="button button-primary continue-button" onClick={handleNavigate}>Continue</button>
                 </div>
             </section>
         </>
