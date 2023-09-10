@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import FleetCard from "../components/ride/FleetCard";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserTotal } from "../stores/actions/actionUser";
+import { setFleetName, setUserTotal } from "../stores/actions/actionUser";
 
 
 export default function FleetView() {
@@ -32,16 +32,16 @@ export default function FleetView() {
 
     // select fleet by id
     const [selectedOption, setSelectedOption] = useState(null)
-    const [total, setTotal] = useState(0)
     const handleOptionChange = (value) => {
-        const { id, newTotal } = value
+        const { id, newTotal, name } = value
         setSelectedOption(id)
         dispatch(setUserTotal(newTotal))
+        dispatch(setFleetName(name))
     }
 
 
     const handleNavigate = () => {
-        navigate('/checkout')
+        navigate('/booking')
     }
 
     // navigation guard

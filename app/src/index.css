@@ -197,7 +197,7 @@ body {
 #navbar {
   position: fixed;
   top: 0;
-  height: 50px;
+  height: 8vh;
   background-color: #48034F;
   width: 100%;
   padding-left: 10px;
@@ -211,7 +211,7 @@ body {
 }
 
 .container-with-navbar {
-  margin-top: 70px;
+  margin-top: 8vh;
 }
 
 /* Footer */
@@ -404,4 +404,34 @@ body {
 }
 
 
-/* Footer fleet */
+/* Booking Confirmation */
+#booking-container {
+  height: 92vh;
+  padding: 0 20px;
+}
+
+.booking-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container-content {
+  height: 100%;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-text-content {
+  font-size: small;
+  width: 50%;
+  text-align: justify;
+}
+
+.booking-total {
+  font-size: large;
+  width: 50%;
+  font-weight: bold;
+  color: var(--secondary);
+}

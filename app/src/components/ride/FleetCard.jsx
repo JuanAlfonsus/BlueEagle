@@ -18,7 +18,7 @@ export default function FleetCard({ fleet, selectedOption, handleOptionChange, d
 
     return (
         <>
-            <div className={ selectedOption === id ? 'fleet-card active' : 'fleet-card' } onClick={() => handleOptionChange({ id, newTotal })}>
+            <div className={ selectedOption === id ? 'fleet-card active' : 'fleet-card' } onClick={() => handleOptionChange({ id, newTotal, name })}>
                 <img src={Taxi} alt="" />
 
                 <div className='fleet-content'>

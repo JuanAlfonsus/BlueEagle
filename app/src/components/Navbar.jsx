@@ -11,7 +11,7 @@ export default function Navbar({ name, withArrow }) {
                 <div className="text-white" id="navbar-title" style={{ display: "flex", marginTop: 20 }}>
                     {
                         withArrow ? 
-                        <i onClick={() => navigate('/ride')} className="fa-solid fa-arrow-left" style={{ fontSize: '20px', height: '20px' }}></i>
+                        <i onClick={() => navigate(-1)} className="fa-solid fa-arrow-left" style={{ fontSize: '20px', height: '20px' }}></i>
                         : 
                         ''
                     }

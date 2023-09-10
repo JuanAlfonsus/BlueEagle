@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import Navbar from "../components/Navbar"
 
 
 export default function CheckoutView() {
@@ -7,7 +8,7 @@ export default function CheckoutView() {
     console.log(total)
     return (
         <>
-            <h1>Checkout</h1>
+            <Navbar name={' Checkout '} withArrow={true} />
         </>
     )
 }
