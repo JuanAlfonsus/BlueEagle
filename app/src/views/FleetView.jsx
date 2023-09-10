@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import FleetCard from "../components/ride/FleetCard";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 export default function FleetView() {
+    const locations = useLocation()
+    const distance = locations?.state
+
+    const navigate = useNavigate()
+
     const [fleets, setFleets] = useState([])
 
     const fetchFleet = async () => {
@@ -20,8 +26,13 @@ export default function FleetView() {
         }
     }
 
+    // navigation guard
     useEffect(() => {
-        fetchFleet()
+        if (!distance) {
+            navigate('/ride')
+        } else {
+            fetchFleet()
+        }
     }, [])
 
     const [selectedOption, setSelectedOption] = useState(null);

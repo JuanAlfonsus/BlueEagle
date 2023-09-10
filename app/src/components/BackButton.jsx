@@ -6,7 +6,7 @@ export default function BackButton() {
 
     const handleBack = (e) => {
         e.stopPropagation()
-        navigate(-1)
+        navigate('/')
     } 
 
     return (
