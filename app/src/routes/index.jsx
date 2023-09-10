@@ -10,11 +10,13 @@ import CheckoutView from "../views/CheckoutView";
 import BookingConfirmationView from "../views/BookingConfirmationView";
 import WaitingView from "../views/WaitingView";
 import SuccessView from "../views/SuccessView";
+import UserView from "../views/UserView";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />
+        element: <App />,
+        loader: () => !localStorage.access_token ? redirect('/login') : null
     },
     {
         path: "/promo",
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
     {
         path: "/success",
         element: <SuccessView />
+    },
+    {
+        path: "/user",
+        element: <UserView />
     },
     {
         path: "/login",

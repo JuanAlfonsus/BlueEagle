@@ -28,9 +28,15 @@ export default function LoginView() {
                 method: 'post'
             })
 
-            response = await response.json()
-            localStorage.setItem('access_token', response.access_token)
-            navigate('/')
+            if (response.ok) {
+                response = await response.json()
+                localStorage.setItem('access_token', response.access_token)
+                localStorage.setItem('name', response.name)
+                navigate('/')
+            } else {
+                response = await response.json()
+                throw (response)
+            }
         } catch (error) {
             console.log(error)
         }
