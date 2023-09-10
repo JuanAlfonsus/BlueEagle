@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { setUserDistance } from '../../stores/actions/actionUser'
+import Loader from '../Loader'
 
 export default function MapDirections() {
     // Google Map
@@ -75,9 +76,7 @@ export default function MapDirections() {
     }, [isLoaded]);
 
     if (!isLoaded) {
-        return (
-            <p>Loading...</p>
-        )
+        return <Loader />
     }
 
     return (

@@ -1,12 +1,13 @@
 import { createStore } from 'redux'
-import { SET_USER_DISTANCE, SET_USER_PRICE, SET_FLEET_NAME } from './actions/actionType'
+import { SET_USER_DISTANCE, SET_USER_PRICE, SET_FLEET_NAME, SET_FLEET_ID } from './actions/actionType'
 
 const initialState = {
     distance: 0,
     origin: '',
     destination: '',
     total: 0,
-    fleetName: ''
+    fleetName: '',
+    fleetId: -1
 }
 
 function userReducer(state = initialState, action) {
@@ -32,6 +33,12 @@ function userReducer(state = initialState, action) {
             return {
                 ...state,
                 fleetName: action.payload
+            }
+
+        case SET_FLEET_ID:
+            return {
+                ...state,
+                fleetId: action.payload
             }
 
         default:

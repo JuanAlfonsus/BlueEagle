@@ -443,7 +443,7 @@ export default function PromoView() {
     const fetchPromo = async () => {
         try {
             setLoading(true)
-            let response = await fetch('https://content.digi46.id/promos', {
+            let response = await fetch('https://banner.digi46.id/promos', {
                 method: 'get'
             })
 

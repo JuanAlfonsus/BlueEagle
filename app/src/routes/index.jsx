@@ -8,6 +8,7 @@ import RideView from "../views/RideView";
 import FleetView from "../views/FleetView";
 import CheckoutView from "../views/CheckoutView";
 import BookingConfirmationView from "../views/BookingConfirmationView";
+import WaitingView from "../views/WaitingView";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
     {
         path: "/checkout",
         element: <CheckoutView />
+    },
+    {
+        path: "/waiting-arrive",
+        element: <WaitingView />
     },
     {
         path: "/login",
