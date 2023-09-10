@@ -8,7 +8,7 @@ export default function WaitingView() {
 
     useEffect(() => {
         setTimeout(() => {
-            navigate('/')
+            navigate('/success')
         }, 3000)
     }, [])
 

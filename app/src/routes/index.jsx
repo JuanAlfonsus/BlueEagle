@@ -9,6 +9,7 @@ import FleetView from "../views/FleetView";
 import CheckoutView from "../views/CheckoutView";
 import BookingConfirmationView from "../views/BookingConfirmationView";
 import WaitingView from "../views/WaitingView";
+import SuccessView from "../views/SuccessView";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
     {
         path: "/waiting-arrive",
         element: <WaitingView />
+    },
+    {
+        path: "/success",
+        element: <SuccessView />
     },
     {
         path: "/login",
