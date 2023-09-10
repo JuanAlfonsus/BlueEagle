@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import FleetCard from "../components/ride/FleetCard";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 export default function FleetView() {
-    const locations = useLocation()
-    const distance = locations?.state
+    // get distance from redux
+    const distance = useSelector((state) => state.distance)
 
     const navigate = useNavigate()
 
@@ -38,9 +39,8 @@ export default function FleetView() {
     const [selectedOption, setSelectedOption] = useState(null);
 
     const handleOptionChange = (event) => {
-        console.log(event.target)
         setSelectedOption(event.target.value);
-    };
+    }
 
     return (
         <>

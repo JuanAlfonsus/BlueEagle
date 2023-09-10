@@ -1,6 +1,8 @@
 import { useJsApiLoader, GoogleMap, Marker, Autocomplete, DirectionsRenderer } from '@react-google-maps/api'
 import { useEffect, useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { setUserDistance } from '../../stores/actions/actionUser'
 
 export default function MapDirections() {
     // Google Map
@@ -47,16 +49,17 @@ export default function MapDirections() {
 
     // Section bottom
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const handleContinue = (e) => {
         e.preventDefault()
-        navigate('/fleet', {
-            state: {
-                distance,
-                origin: originRef.current.value,
-                destination: destinationRef.current.value
-            }
-        })
+        dispatch(setUserDistance({
+            distance,
+            origin: originRef.current.value,
+            destination: destinationRef.current.value
+        }))
+
+        navigate('/fleet')
     }
 
     useEffect(() => {
